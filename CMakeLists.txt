@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.30)
+project(algoritmos)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(algoritmos main.cpp)
+add_executable(hoja01_ejercicio01 HOJAEJERCICIOS01/hoja01_ejercicio01.cpp)
