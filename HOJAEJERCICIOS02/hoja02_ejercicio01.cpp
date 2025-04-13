@@ -146,7 +146,7 @@ int main()
     }
 
     // Modificar datos
-    cout << "\n\n*** MODIFICACION DE ECLIPSES ***\n";
+    cout << "\n*** MODIFICACION DE ECLIPSES ***\n";
 
     int modificar;
     cout << "Desea modificar un eclipse? (1 para si, 0 para no): ";
@@ -233,7 +233,7 @@ int main()
     }
 
     // Reporte de eclipses que ocasionaron sismos
-    cout << "\n\n****** ECLIPSES QUE OCASIONARON SISMOS ******\n";
+    cout << "\n****** ECLIPSES QUE OCASIONARON SISMOS ******\n";
     for (auto& eclipse : eclipses)
     {
         if (eclipse.getSismos())
@@ -244,7 +244,7 @@ int main()
     }
 
     // Reporte de eclipses que se produjeron en la noche
-    cout << "\n\n****** ECLIPSES QUE SE PRODUJERON EN LA NOCHE ******\n";
+    cout << "\n****** ECLIPSES QUE SE PRODUJERON EN LA NOCHE ******\n";
     for (auto& eclipse : eclipses)
     {
         if (eclipse.getHora() >= 1800) // Consideramos que la noche empieza a las 6pm (1800)
