@@ -106,7 +106,8 @@ int main()
     cout << "Ingrese el numero de eclipses a registrar: ";
     cin >> n;
 
-    vector<ECLIPSE> eclipses(n); // Arreglo dinamico de eclipses
+    vector<ECLIPSE> eclipses; // Arreglo dinamico de eclipses
+    eclipses.reserve(n); // Reservar espacio para n eclipses
 
     // Ingreso de datos
     for (int i = 0; i < n; i++)
@@ -132,15 +133,16 @@ int main()
         cin.ignore(); // Limpiar el buffer de entrada
         getline(cin, continente); // Permite ingresar continentes con espacios
 
-        eclipses[i] = ECLIPSE(tipo, fecha, hora, sismos, lluvias, continente);
+        ECLIPSE eclipse(tipo, fecha, hora, sismos, lluvias, continente); // Crear objeto eclipse
+        eclipses.push_back(eclipse); // Agregar el eclipse al vector
     }
 
     // Mostrar informacion de los eclipses registrados
     cout << "\n****** Eclipses Registrados ******\n";
-    for (int i = 0; i < n; i++)
+    for (auto& eclipse : eclipses) // Usar referencia para evitar copias innecesarias
     {
-        cout << "\nEclipse " << i + 1 << ":\n";
-        cout << eclipses[i].toString() << endl;
+        cout << eclipse.toString() << endl;
+        cout << endl;
     }
 
     // Modificar datos
@@ -205,17 +207,13 @@ int main()
     if (eliminar == 1)
     {
         int index;
-        cout << "Ingrese el indice del eclipse a eliminar (0 a " << n - 1 << "): ";
+        cout << "Ingrese el indice del eclipse a eliminar (0 a " << eclipses.size() - 1 << "): ";
         cin >> index;
 
-        if (index >= 0 && index < n)
+        if (index >= 0 && index < eclipses.size())
         {
-            for (int i = index; i < n - 1; i++)
-            {
-                eclipses[i] = eclipses[i + 1]; // Desplazar los elementos hacia la izquierda
-            }
-            n--; // Reducir el tamaño del arreglo
-            cout << "Eclipse eliminado." << endl;
+            eclipses.erase(eclipses.begin() + index); // Eliminar el eclipse del vector
+            cout << "Eclipse eliminado correctamente.\n";
         }
         else
         {
@@ -225,33 +223,33 @@ int main()
 
     // Reporte de eclipses visibles en Europa
     cout << "\n\n****** ECLIPSES VISIBLES EN EUROPA ******\n";
-    for (int i = 0; i < n; i++)
+    for (auto& eclipse : eclipses)
     {
-        if (eclipses[i].getContinente() == "Europa")
+        if (eclipse.getContinente() == "Europa")
         {
-            cout << eclipses[i].toString() << endl;
+            cout << eclipse.toString() << endl;
             cout << endl;
         }
     }
 
     // Reporte de eclipses que ocasionaron sismos
     cout << "\n\n****** ECLIPSES QUE OCASIONARON SISMOS ******\n";
-    for (int i = 0; i < n; i++)
+    for (auto& eclipse : eclipses)
     {
-        if (eclipses[i].getSismos())
+        if (eclipse.getSismos())
         {
-            cout << eclipses[i].toString() << endl;
+            cout << eclipse.toString() << endl;
             cout << endl;
         }
     }
 
     // Reporte de eclipses que se produjeron en la noche
     cout << "\n\n****** ECLIPSES QUE SE PRODUJERON EN LA NOCHE ******\n";
-    for (int i = 0; i < n; i++)
+    for (auto& eclipse : eclipses)
     {
-        if (eclipses[i].getHora() >= 1800) // Consideramos que la noche es a partir de las 6pm
+        if (eclipse.getHora() >= 1800) // Consideramos que la noche empieza a las 6pm (1800)
         {
-            cout << eclipses[i].toString() << endl;
+            cout << eclipse.toString() << endl;
             cout << endl;
         }
     }
