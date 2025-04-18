@@ -16,3 +16,4 @@ add_executable(hoja03_ejercicio02 HOJAEJERCICIOS03/hoja03_ejercicio02.cpp)
 add_executable(hoja03_ejercicio03 HOJAEJERCICIOS03/hoja03_ejercicio03.cpp)
 add_executable(hoja03_ejercicio04 HOJAEJERCICIOS03/hoja03_ejercicio04.cpp
 )
+add_executable(hoja03_ejercicio05 HOJAEJERCICIOS03/hoja03_ejercicio05.cpp)
