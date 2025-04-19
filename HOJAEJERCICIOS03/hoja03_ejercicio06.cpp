@@ -3,29 +3,29 @@
 //
 
 /**
-*Gráficos y Recorridos
-Se requiere que realice un programa orientado a objetos donde podrá seleccionar: dibujar un
-triángulo equilátero o un triángulo rectángulo en sentido horario.
-Se debe poder seleccionar el carácter que dibujará el triángulo y el lado. Cada carácter aparecerá
-con un retraso de 100 milisegundos. Deberá validar que al ingresar el lado del de cualquiera de los
-triángulos deberá ser entre 5 y 100.
+*Graficos y Recorridos
+Se requiere que realice un programa orientado a objetos donde podra seleccionar: dibujar un
+triangulo equilatero o un triangulo rectangulo en sentido horario.
+Se debe poder seleccionar el caracter que dibujara el triangulo y el lado. Cada caracter aparecera
+con un retraso de 100 milisegundos. Debera validar que al ingresar el lado del de cualquiera de los
+triangulos debera ser entre 5 y 100.
 
 MENU
-1. Triángulo Equilátero Horario
-2. Triángulo Rectángulo Horario
-Ingrese la opción:
+1. Triangulo Equilatero Horario
+2. Triangulo Rectangulo Horario
+Ingrese la opcion:
 
-El punto de inicio del recorrido del carácter si simboliza con un punto negro en los ejemplos.
-Si ingresa la opción 1 aparecerá:
+El punto de inicio del recorrido del caracter si simboliza con un punto negro en los ejemplos.
+Si ingresa la opcion 1 aparecera:
 Ingrese el lado: 8
-Ingrese el carácter: -
+Ingrese el caracter: -
 
-Si ingresa la opción 2 aparecerá:
+Si ingresa la opcion 2 aparecera:
 Ingrese el lado1: 5
 Ingrese el lado2: 9
-Ingrese el carácter: -
+Ingrese el caracter: -
 
-Para ello creará una clase llamada triangulo_equilatero y otra llamada triangulo_rectangulo.
+Para ello creara una clase llamada triangulo_equilatero y otra llamada triangulo_rectangulo.
 Puede usar: Console::SetCursorPosition(coordX, coordY);
 */
 
@@ -71,8 +71,8 @@ void menu()
 {
     clearScreen();
     cout << "***** MENU *****" << endl;
-    cout << "1. Dibuja un triángulo equilátero" << endl;
-    cout << "2. Dibuja un triángulo rectángulo" << endl;
+    cout << "1. Dibuja un triangulo equilatero" << endl;
+    cout << "2. Dibuja un triangulo rectangulo" << endl;
     cout << "3. Salir" << endl;
 }
 
@@ -94,7 +94,7 @@ public:
 
         int x = 0, y = lado - 1;
 
-        // Dibuja el lado izquierdo del triángulo
+        // Dibuja el lado izquierdo del triangulo
         for (int i = 0; i < lado; i++)
         {
             gotoxy(x + i, y - i);
@@ -102,7 +102,7 @@ public:
             Sleep(100);
         }
 
-        // Dibuja el lado derecho del triángulo
+        // Dibuja el lado derecho del triangulo
         for (int i = 1; i < lado - 1; i++)
         {
             gotoxy(x + lado - 1 + i, y - y + i);
@@ -110,7 +110,7 @@ public:
             Sleep(100);
         }
 
-        // Dibuja la base del triángulo
+        // Dibuja la base del triangulo
         for (int i = 1; i < lado * 2; i++)
         {
             int posX = x + lado * 2 - i;
@@ -143,7 +143,7 @@ public:
 
         int x = 0, y = lado1 - 1;
 
-        // 1. Lado izquierdo (subida)
+        // Dibuja el lado izquierdo del triangulo
         for (int i = 0; i < lado1; i++)
         {
             gotoxy(x, y - i);
@@ -151,29 +151,25 @@ public:
             Sleep(100);
         }
 
-        // 2. Hipotenusa (progresiva hacia la derecha, subiendo escalonado)
-        // Calculamos cuántos pasos hacia la derecha para cada fila
+        // Dibuja la hipotenusa del triangulo
+        // Calculamos cuantos pasos hacia la derecha para cada fila
         double pasoHorizontal = static_cast<double>(lado2 - 1) / (lado1 - 1);
 
         for (int i = 1; i < lado1 - 1; i++)
         {
-            int xActual = round(pasoHorizontal * i); // redondear al entero más cercano
+            int xActual = round(pasoHorizontal * i); // redondear al entero mas cercano
             int yActual = i;
             gotoxy(xActual, yActual);
             cout << caracter;
             Sleep(100);
         }
 
-        // 3. Base (horizontal)
+        // Dibuja la base del triangulo
         for (int i = lado2 - 1; i >= 0; i--)
         {
-            if (i % 2 == 0)
-            {
-                // muestra cada dos para formar línea recta
-                gotoxy(i, lado1 - 1);
-                cout << caracter;
-                Sleep(100);
-            }
+            gotoxy(i, lado1 - 1);
+            cout << caracter;
+            Sleep(100);
         }
     }
 };
@@ -187,12 +183,12 @@ int main()
     do
     {
         menu();
-        cout << "Elige una opción: ";
+        cout << "Elige una opcion: ";
         cin >> opcion;
 
-        if (opcion < 1 || opcion > 2)
+        if (opcion < 1 || opcion > 3)
         {
-            cout << "Opción no válida. Intenta de nuevo." << endl;
+            cout << "Opcion no valida. Intenta de nuevo." << endl;
             Sleep(2000);
             continue;
         }
@@ -204,7 +200,7 @@ int main()
                 int lado;
                 string caracter;
 
-                cout << "Introduce el lado del triángulo (" << MIN_LADO << "-" << MAX_LADO << "): ";
+                cout << "Introduce el lado del triangulo (" << MIN_LADO << "-" << MAX_LADO << "): ";
                 cin >> lado;
 
                 if (lado < MIN_LADO || lado > MAX_LADO)
@@ -228,7 +224,7 @@ int main()
                 int lado1, lado2;
                 string caracter;
 
-                cout << "Introduce el lado1 (alto) del triángulo (" << MIN_LADO << "-" << MAX_LADO << "): ";
+                cout << "Introduce el lado1 (alto) del triangulo (" << MIN_LADO << "-" << MAX_LADO << "): ";
                 cin >> lado1;
 
                 if (lado1 < MIN_LADO || lado1 > MAX_LADO)
@@ -238,7 +234,7 @@ int main()
                     continue;
                 }
 
-                cout << "Introduce el lado2 (base) del triángulo (" << MIN_LADO << "-" << MAX_LADO << "): ";
+                cout << "Introduce el lado2 (base) del triangulo (" << MIN_LADO << "-" << MAX_LADO << "): ";
                 cin >> lado2;
 
                 if (lado2 < MIN_LADO || lado2 > MAX_LADO)
@@ -257,12 +253,15 @@ int main()
                 _getch();
                 break;
             }
+        case 3:
+            cout << "Saliendo del programa..." << endl;
+            break;
         default:
-            cout << "Opción no válida. Intenta de nuevo." << endl;
+            cout << "Opcion no valida. Intenta de nuevo." << endl;
             Sleep(2000);
         }
     }
-    while (opcion != 2);
+    while (opcion != 3);
 
     return 0;
 }
