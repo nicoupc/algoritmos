@@ -40,3 +40,8 @@ add_executable(ejercicio_repaso HOJAEJERCICIOS03/EJERCICIOSREFORZAMIENTO/EJERCIC
 add_executable(persona HOJAEJERCICIOS04/EJERCICIOSREPASO/main.cpp
         HOJAEJERCICIOS04/EJERCICIOSREPASO/persona.cpp
         HOJAEJERCICIOS04/EJERCICIOSREPASO/persona.h)
+add_executable(hoja04_ejercicio01 HOJAEJERCICIOS04/hoja04_ejercicio01.cpp)
+add_executable(hoja05_ejercicio01 HOJAEJERCICIOS05/EJERCICIO01/hoja05_ejercicio01.cpp
+        HOJAEJERCICIOS05/EJERCICIO01/Boleto.h
+        HOJAEJERCICIOS05/EJERCICIO01/Hotel.h
+        HOJAEJERCICIOS05/EJERCICIO01/PlanVacacion.h)
