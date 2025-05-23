@@ -45,3 +45,5 @@ add_executable(hoja05_ejercicio01 HOJAEJERCICIOS05/EJERCICIO01/hoja05_ejercicio0
         HOJAEJERCICIOS05/EJERCICIO01/Boleto.h
         HOJAEJERCICIOS05/EJERCICIO01/Hotel.h
         HOJAEJERCICIOS05/EJERCICIO01/PlanVacacion.h)
+add_executable(lb1_ejercicio01 LB1/lb1_ejercicio01.cpp)
+add_executable(lb1_ejercicio02 LB1/lb1_ejercicio02.cpp)
