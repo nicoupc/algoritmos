@@ -155,8 +155,7 @@ public:
             default:
                 cout << "Opcion invalida. Intente de nuevo.\n";
             }
-        }
-        while (opcion != 5);
+        } while (opcion != 5);
     }
 
     // Opción 1: Ingresar datos manualmente
@@ -175,7 +174,7 @@ public:
         cin >> mayorRiesgoMuerte;
 
         string varianteIdentificada = identificarVariante(transmiteFacil, repercusionMedicamentos, disminuyeAnticuerpos,
-                                                          mayorRiesgoMuerte);
+            mayorRiesgoMuerte);
         cout << "RESULTADO\n";
         cout << "Se ha identificado la variante: " << varianteIdentificada << "\n";
 
@@ -190,7 +189,7 @@ public:
         }
 
         // Pausa para volver al menú
-        cout << "Presione una tecla para volver al menu...\n";
+        cout << endl;
         system("pause");
     }
 
@@ -207,7 +206,7 @@ public:
             char mayorRiesgoMuerte = rand() % 2 == 0 ? 'S' : 'N';
 
             string varianteIdentificada = identificarVariante(transmiteFacil, repercusionMedicamentos,
-                                                              disminuyeAnticuerpos, mayorRiesgoMuerte);
+                disminuyeAnticuerpos, mayorRiesgoMuerte);
 
             // Incrementar el contador de casos de la variante identificada
             for (auto& variante : variantes)
@@ -220,6 +219,9 @@ public:
             }
         }
         cout << "Registro Automatico de " << n << " registros terminados.\n";
+
+        cout << endl;
+        system("pause");
     }
 
     // Opción 3: Mostrar reporte total
@@ -231,6 +233,9 @@ public:
         {
             cout << variante.nombre << ": " << variante.casos << " casos\n";
         }
+
+        cout << endl;
+        system("pause");
     }
 
     // Opción 4: Mostrar variante menos influyente
@@ -245,11 +250,14 @@ public:
             }
         }
         cout << "La variante menos influyente es: " << menosInfluyente->nombre << "\n";
+
+        cout << endl;
+        system("pause");
     }
 
     // Identificar variante según las respuestas
     string identificarVariante(char transmiteFacil, char repercusionMedicamentos, char disminuyeAnticuerpos,
-                               char mayorRiesgoMuerte)
+        char mayorRiesgoMuerte)
     {
         if (transmiteFacil == 'S' && mayorRiesgoMuerte == 'S') return "ALEMANIA";
         if (transmiteFacil == 'S' && repercusionMedicamentos == 'S' && disminuyeAnticuerpos == 'S') return "ISRAEL";
@@ -257,6 +265,9 @@ public:
         if (transmiteFacil == 'S' && disminuyeAnticuerpos == 'S') return "RUSIA";
         if (transmiteFacil == 'S') return "BRASIL";
         return "DESCONOCIDA";
+
+        cout << endl;
+        system("pause");
     }
 };
 
