@@ -406,7 +406,6 @@ int main() {
     return 0;
 }
 
-ce0fe-06010
 2ddb3-f8fe9
 680be-52a19
 7f37c-3cc4b
@@ -417,6 +416,5 @@ dd95b-d126a
 90401-742e8
 d063c-e0367
 
-ztrox40
 g:3VLauoGZN7y%o^
 ```
